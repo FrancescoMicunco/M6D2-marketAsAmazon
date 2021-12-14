@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "start": "node src/server.j",
         "dev": "nodemon -r dotenv/config src/server.js",
