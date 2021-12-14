@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS product
         product_id  integer PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY,
         product_name varchar(50)  NOT NULL,
         product_description varchar(255)  NOT NULL,
-        brand: varchar(50)  NOT NULL, 	  
+        brand varchar(50)  NOT NULL, 	  
         image_url varchar(255)  NOT NULL,
         price NUMERIC(10, 2)  NOT NULL,
         category varchar(50)  NOT NULL,
