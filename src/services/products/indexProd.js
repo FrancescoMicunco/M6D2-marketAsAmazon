@@ -24,7 +24,7 @@ productRouter.post("/", async(req, res, next) => {
             "INSERT INTO product (product_name, product_description, brand, image_url, price, category) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [product_name, product_description, brand, image_url, price, category]
         );
 
-        res.status(200).send(result.rows[0]);
+        res.status(201).send(result.rows[0]);
     } catch (error) {
         res.status(500).send({ message: error.message });
     }
