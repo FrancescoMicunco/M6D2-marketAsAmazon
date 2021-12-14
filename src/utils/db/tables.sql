@@ -26,5 +26,5 @@ CREATE TABLE IF NOT EXISTS reviews_product
 (
         reviews_product_id  integer PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY,
         product_id integer REFERENCES product,
-        reviews_id integer REFERENCES reviews,
+        reviews_id integer REFERENCES reviews
 )
