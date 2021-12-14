@@ -5,7 +5,7 @@ import pool from './connect.js'
 
 const createTables = async() => {
     try {
-        const filePath = path.join(process.cwd(), "./tables.sql");
+        const filePath = path.join(process.cwd(), "src/utils/db/tables.sql");
         console.log("THIS IS THE FILE PATH", filePath)
         const fileAsBuffer = await fs.readFile(filePath)
         const fileAsString = fileAsBuffer.toString();
@@ -13,7 +13,7 @@ const createTables = async() => {
         console.log("table created")
 
     } catch (error) {
-        console.log("error creating tables")
+        console.log(error)
     }
 };
 

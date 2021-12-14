@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS product
         price NUMERIC(10, 2)  NOT NULL,
         category varchar(50)  NOT NULL,
         created_at timestamp with time zone DEFAULT now(),
-        updated_at: timestamp with time zone DEFAULT now()
-)
+        updated_at timestamp with time zone DEFAULT now()
+);
 
 
 CREATE TABLE IF NOT EXISTS reviews
@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS reviews
         rate NUMERIC(1,0)  NOT NULL,
         product_id integer REFERENCES product,
         created_at timestamp with time zone DEFAULT now(),
-        updated_at: timestamp with time zone DEFAULT now()
-)
+        updated_at timestamp with time zone DEFAULT now()
+);
 
 CREATE TABLE IF NOT EXISTS reviews_product
 (
