@@ -1,11 +1,11 @@
 import express from "express";
 import cors from 'cors';
 //import { testConnection } from './utils/db/connect.js';
-import productRouter from './services/products/indexProd.js';
-import reviewsRouter from "./services/reviews/indexRev.js";
+//import productRouter from './services/products/indexProd.js';
+//import reviewsRouter from "./services/reviews/indexRev.js";
 import sequelize, { testDB } from "./utils/db/connectSequelize.js";
-
-
+import productsRouter from '../src/services/products/productASSequelize.js'
+import reviesRouter from "../src/services/reviews/reviewsASSequelize.js";
 
 const server = express();
 
@@ -13,7 +13,10 @@ server.use(express.json());
 server.use(cors());
 
 
-server.use("/product", productRouter);
+//server.use("/product", productRouter);
+//server.use("/reviews", reviewsRouter);
+
+server.use("/product", productsRouter);
 server.use("/reviews", reviewsRouter);
 
 
