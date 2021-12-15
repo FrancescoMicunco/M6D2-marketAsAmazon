@@ -5,7 +5,7 @@ import cors from 'cors';
 //import reviewsRouter from "./services/reviews/indexRev.js";
 import sequelize, { testDB } from "./utils/db/connectSequelize.js";
 import productsRouter from '../src/services/products/productASSequelize.js'
-import reviesRouter from "../src/services/reviews/reviewsASSequelize.js";
+import reviewsRouter from "../src/services/reviews/reviewsASSequelize.js";
 
 const server = express();
 

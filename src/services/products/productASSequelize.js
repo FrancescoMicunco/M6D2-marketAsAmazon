@@ -1,5 +1,5 @@
 import express from "express";
-import { Products } from "../../utils/db/models/product.js"
+//import { Products } from "../../utils/db/models/product.js"
 import { Products, Reviews } from "../../utils/db/models/index.js"
 import { Op, Sequelize } from "sequelize";
 
@@ -15,13 +15,18 @@ router
                 where: {
                     ...(req.query.search && {
                         [Op.or]: [{
-                                text: {
-                                    [Op.iLike]: `%${req.query.search}%`
+                                name: {
+                                    [Op.iLike]: `%${req.query.search}%`,
                                 },
                             },
                             {
-                                username: {
-                                    [Op.iLike]: `%${req.query.search}%`
+                                category: {
+                                    [Op.iLike]: `%${req.query.search}%`,
+                                },
+                            },
+                            {
+                                description: {
+                                    [Op.iLike]: `%${req.query.search}%`,
                                 },
                             },
                         ],
