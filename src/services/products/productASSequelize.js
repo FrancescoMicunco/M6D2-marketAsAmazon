@@ -60,3 +60,27 @@ router
 
         }
     })
+
+.put(async(req, res, next) => {
+        try {
+            const updateProduct = await Products.update(req.body, {
+                where: { id: req.params.id },
+                returning: true,
+            })
+        } catch (error) {
+            next(error)
+        }
+    })
+    .delete(async(req, res, next) => {
+        try {
+            const deleteProduct = await Products.destroy({
+                where: { id: req.params.id },
+            });
+            if (result > 0) { res.send("201. Product deleted") }
+
+        } catch (error) {
+            next(error)
+        }
+    })
+
+export default router;
