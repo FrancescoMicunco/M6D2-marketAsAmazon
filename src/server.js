@@ -6,7 +6,7 @@ import cors from 'cors';
 import sequelize, { testDB } from "./utils/db/connectSequelize.js";
 import productsRouter from '../src/services/products/productASSequelize.js'
 import reviewsRouter from "../src/services/reviews/reviewsAsSequelize.js";
-import categoriesRouter from "../src/services/reviews/indexAsSequelize.js";
+import categoriesRouter from "../src/services/reviews/categoriesAsSequelize.js";
 import usersRouter from "../src/services/reviews/usersAsSequelize.js";
 import Products from "./utils/db/models/product.js";
 import Reviews from "./utils/db/models/reviews.js";
