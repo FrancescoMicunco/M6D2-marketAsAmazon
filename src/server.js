@@ -19,12 +19,21 @@ server.use(cors());
 server.use("/product", productsRouter);
 server.use("/reviews", reviewsRouter);
 
+import Products from "./utils/db/models/product.js";
+import Reviews from "./utils/db/models/reviews.js";
+
+Products.hasMany(Reviews, { onDelete: "CASCADE" });
+Reviews.belongsTo(Products, { onDelete: "CASCADE" });
+
+
+
+
 
 console.table(server)
-server.listen(process.env.PORT || 3001, async() => {
+server.listen(process.env.PORT || 3002, async() => {
     console.log(`Server is running`);
     await testDB()
-    await sequelize.sync()
+    await sequelize.sync({ force: true })
 });
 
 server.on("error", (error) => console.log("Server is not running", error));

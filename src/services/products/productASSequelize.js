@@ -1,6 +1,10 @@
 import express from "express";
-//import { Products } from "../../utils/db/models/product.js"
-import { Products, Reviews } from "../../utils/db/models/index.js"
+import Products from "../../utils/db/models/product.js"
+
+
+import Reviews from "../../utils/db/models/reviews.js";
+
+//import { Products, Reviews } from "../../utils/db/models/index.js"
 import { Op, Sequelize } from "sequelize";
 
 
@@ -35,6 +39,7 @@ router
             });
             res.send(products)
         } catch (error) {
+            console.log(error)
             next(error)
         }
     })
@@ -71,7 +76,8 @@ router
             const updateProduct = await Products.update(req.body, {
                 where: { id: req.params.id },
                 returning: true,
-            })
+            });
+            res.send(updateProduct)
         } catch (error) {
             next(error)
         }
@@ -81,7 +87,7 @@ router
             const deleteProduct = await Products.destroy({
                 where: { id: req.params.id },
             });
-            if (result > 0) { res.send("201. Product deleted") }
+            if (result > 0) { res.send("201. Product deleted") } else { console.log(error) }
 
         } catch (error) {
             next(error)

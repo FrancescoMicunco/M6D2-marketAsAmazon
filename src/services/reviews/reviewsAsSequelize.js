@@ -1,6 +1,9 @@
 import express from "express";
 //import { Reviews } from "../../utils/db/models/reviews.js";
-import { Products, Reviews } from "../../utils/db/models/index.js";
+
+
+import Products from "../../utils/db/models/product.js";
+import Reviews from "../../utils/db/models/reviews.js";
 import { Op, Sequelize } from "sequelize";
 const router = express.Router();
 
@@ -9,7 +12,7 @@ router
     .get(async(req, res, next) => {
         try {
             const reviews = await Reviews.findAll({
-                include: Reviews,
+
                 where: {
                     ...(req.query.search && {
                         [Op.or]: [{
