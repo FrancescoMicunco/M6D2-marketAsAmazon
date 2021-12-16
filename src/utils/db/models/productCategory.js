@@ -2,11 +2,11 @@ import sequelize from "../connectSequelize";
 import s from 'sequelize'
 import { DataType } from 's'
 
-const ArticleCategory = sequelize.define(
-    "articleCategory", {
+const ProductCategory = sequelize.define(
+    "productCategory", {
 
     }, { timestamp: false }
 
 );
 
-export default ArticleCategory
+export default ProductCategory

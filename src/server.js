@@ -12,7 +12,7 @@ import Products from "./utils/db/models/product.js";
 import Reviews from "./utils/db/models/reviews.js";
 import Categories from "./utils/db/models/categories.js";
 import User from "./utils/db/models/users.js";
-import ArticleCategory from "./utils/db/models/articleCategory.js";
+import ProductCategory from "./utils/db/models/productCategory.js";
 
 const server = express();
 
