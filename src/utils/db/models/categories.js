@@ -2,7 +2,7 @@ import sequelize from "../connectSequelize";
 import s from 'sequelize';
 const { DataTypes } = s;
 
-const Category = sequelize.define("category", {
+const Categories = sequelize.define("category", {
     id: {
         primaryKey: true,
         type: DataTypes.UUID,
@@ -14,4 +14,4 @@ const Category = sequelize.define("category", {
     },
 });
 
-export default Category
+export default Categories
