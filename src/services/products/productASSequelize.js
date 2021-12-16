@@ -3,8 +3,8 @@ import Products from "../../utils/db/models/product.js"
 import Reviews from "../../utils/db/models/reviews.js";
 import { Op } from "sequelize";
 import Categories from "../../utils/db/models/categories.js";
-import User from "./utils/db/models/users.js";
-import ProductCategory from "./utils/db/models/productCategory.js";
+import User from "../../utils/db/models/users.js";
+import ProductCategory from "../../utils/db/models/productCategory.js";
 
 
 const router = express.Router();
@@ -72,7 +72,7 @@ router
 
 
         const products = await ProductCategory.bulkCreate(productToInsert);
-        res.send(products, productCategory: products)
+        res.send({ productCategory: products })
     } catch (error) {
         next(error)
     }

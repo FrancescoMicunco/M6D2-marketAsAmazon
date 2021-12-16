@@ -3,7 +3,7 @@ import Products from "../../utils/db/models/product.js";
 import Reviews from "../../utils/db/models/reviews.js";
 import User from "../../utils/db/models/users.js";
 import { Op, Sequelize } from "sequelize";
-import { Literal } from "sequelize/dist/lib/utils";
+
 
 const router = express.Router();
 

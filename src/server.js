@@ -41,9 +41,9 @@ Products.belongsTo(User, { onDelete: "CASCADE" });
 User.hasMany(Reviews, { onDelete: "CASCADE" });
 Reviews.belongsTo(User, { onDelete: "CASCADE" });
 
-Products.belongsTo(Categories, { through: ArticleCategory, onDelete: "CASCADE" });
+Products.belongsToMany(Categories, { through: ProductCategory, onDelete: "CASCADE" });
 
-Categories.belongsTo(Products, { through: ArticleCategory, onDelete: "CASCADE" });
+Categories.belongsToMany(Products, { through: ProductCategory, onDelete: "CASCADE" });
 
 //========== END SECTION ===================
 //=========================================

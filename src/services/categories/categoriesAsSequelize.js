@@ -1,10 +1,10 @@
 import express from "express";
 import Products from "../../utils/db/models/product.js";
 import Reviews from "../../utils/db/models/reviews.js";
-import User from "../../utils/db/models/users";
+import User from "../../utils/db/models/users.js";
 import { Op, Sequelize } from "sequelize";
-import Categories from "../../utils/db/models/categories";
-import router from "../products/productASSequelize";
+import Categories from "../../utils/db/models/categories.js";
+import router from "../products/productASSequelize.js";
 
 router
     .route("/")
