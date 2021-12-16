@@ -3,7 +3,6 @@ import Products from "../../utils/db/models/product.js"
 import Reviews from "../../utils/db/models/reviews.js";
 import { Op } from "sequelize";
 import Categories from "../../utils/db/models/categories.js";
-import ProductCategory from "../../utils/db/models/productCategory.js";
 import User from "./utils/db/models/users.js";
 import ProductCategory from "./utils/db/models/productCategory.js";
 
@@ -61,65 +60,65 @@ router
 
 
 .post(async(req, res, next) => {
-            try {
-                const { categoryId, ...rest } = req.body;
-                const product = await Products.create(rest)
-                if (product) {
-                    const productToInsert = categoryId.map((id) => ({
-                            categoryId: id,
-                            productId: product.id,
-                        })
-                    }
+    try {
+        const { categoryId, ...rest } = req.body;
+        const product = await Products.create(rest)
+        if (product) {
+            const productToInsert = categoryId.map((id) => ({
+                categoryId: id,
+                productId: product.id,
+            }));
+        }
 
 
-                    const products = await ProductCategory.bulkCreate(productToInsert);
-                    res.send(products, productCategory: products)
-                } catch (error) {
-                    next(error)
-                }
-            })
+        const products = await ProductCategory.bulkCreate(productToInsert);
+        res.send(products, productCategory: products)
+    } catch (error) {
+        next(error)
+    }
+})
 
-        router
-        .route("/:id")
-        .get(async(req, res, next) => {
-            try {
-                //const product = await Products.findByPk(req.params.id);
-                const product = await Products.findOne({
-                    where: {
-                        id: req.params.id,
-                    },
-                    include: [User, Reviews]
-                });
+router
+    .route("/:id")
+    .get(async(req, res, next) => {
+        try {
+            //const product = await Products.findByPk(req.params.id);
+            const product = await Products.findOne({
+                where: {
+                    id: req.params.id,
+                },
+                include: [User, Reviews]
+            });
 
-                res.send(product);
+            res.send(product);
 
-            } catch (error) {
-                next(error)
+        } catch (error) {
+            next(error)
 
-            }
-        })
+        }
+    })
 
-        .put(async(req, res, next) => {
-            try {
-                const updateProduct = await Products.update(req.body, {
-                    where: { id: req.params.id },
-                    returning: true,
-                });
-                res.send(updateProduct)
-            } catch (error) {
-                next(error)
-            }
-        })
-        .delete(async(req, res, next) => {
-            try {
-                const deleteProduct = await Products.destroy({
-                    where: { id: req.params.id },
-                });
-                if (result > 0) { res.send("201. Product deleted") } else { console.log(error) }
+.put(async(req, res, next) => {
+        try {
+            const updateProduct = await Products.update(req.body, {
+                where: { id: req.params.id },
+                returning: true,
+            });
+            res.send(updateProduct)
+        } catch (error) {
+            next(error)
+        }
+    })
+    .delete(async(req, res, next) => {
+        try {
+            const deleteProduct = await Products.destroy({
+                where: { id: req.params.id },
+            });
+            if (result > 0) { res.send("201. Product deleted") } else { console.log(error) }
 
-            } catch (error) {
-                next(error)
-            }
-        })
+        } catch (error) {
+            next(error)
+        }
+    })
 
-        export default router;
+export default router;
