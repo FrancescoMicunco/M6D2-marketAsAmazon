@@ -2,8 +2,7 @@ import express from "express";
 import Products from "../../utils/db/models/product.js"
 import Reviews from "../../utils/db/models/reviews.js";
 import { Op, Sequelize } from "sequelize";
-//import { Products, Reviews } from "../../utils/db/models/index.js"
-
+import Categories from "../../utils/db/models/categories.js";
 
 
 const router = express.Router();
